@@ -22,7 +22,7 @@ type Server struct {
 	oAuthToken             *oauth2.Token
 }
 
-const callbackURI = "/product"
+const callbackURI = "/products/v0/products"
 
 func New(c *config.Config) *Server {
 	defaultAppPort := 8080
