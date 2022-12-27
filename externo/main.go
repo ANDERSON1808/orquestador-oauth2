@@ -48,6 +48,7 @@ func main() {
 	})
 
 	http.HandleFunc("/token", func(w http.ResponseWriter, r *http.Request) {
+		log.Println("Start consult token")
 		err := srv.HandleTokenRequest(w, r)
 		if err != nil {
 			fmt.Printf("Data: %v\n", r)
@@ -56,12 +57,16 @@ func main() {
 	})
 
 	http.HandleFunc("/products", func(writer http.ResponseWriter, request *http.Request) {
+		log.Println("Start consult products")
 		err := handler.GetAllProductForCompany(writer, request, srv)
 		if err != nil {
 			fmt.Printf("Data: %v\n", request)
 			return
 		}
 	})
-
-	log.Fatal(http.ListenAndServe(":9096", nil))
+	err := http.ListenAndServe(":9096", nil)
+	if err != nil {
+		log.Fatal("Faild start server")
+		return
+	}
 }

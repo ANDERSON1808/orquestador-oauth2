@@ -3,14 +3,21 @@ services:
   externo:
     build: "externo/."
     ports:
-      - "9096:9097"
+      - "9096:9096"
     expose:
       - "9096"
     restart: always
+    networks:
+      - dir1_some-net
   interno:
     build: "Interno/."
     ports:
-      - "8000:8001"
+      - "8000:8000"
     expose:
       - "8000"
     restart: always
+    networks:
+      - dir1_some-net
+networks:
+  dir1_some-net:
+    external: true

@@ -1,10 +1,10 @@
 [
   {
     "name_company": "company1",
-    "auth_url": "http://localhost:9096/authorize",
-    "token_url": "http://localhost:9096/token",
+    "auth_url": "http://orquestador_externo_1:9096/authorize",
+    "token_url": "http://orquestador_externo_1:9096/token",
     "client_id": "000000",
     "client_secret": "999999",
-    "url_product": "http://localhost:9096/products"
+    "url_product": "http://orquestador_externo_1:9096/products"
   }
 ]

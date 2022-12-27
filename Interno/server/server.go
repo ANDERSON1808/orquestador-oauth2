@@ -25,7 +25,7 @@ type Server struct {
 const callbackURI = "/products/v0/products"
 
 func New(c *config.Config) *Server {
-	defaultAppPort := 8080
+	defaultAppPort := 8000
 
 	if c.AppPort == 0 {
 		if envAppPort := os.Getenv("APP_PORT"); envAppPort != "" {
