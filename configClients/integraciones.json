@@ -1,0 +1,8 @@
+[
+  {
+    "auth_url": "http://localhost:9096/authorize",
+    "token_url": "http://localhost:9096/token",
+    "client_id": "000000",
+    "client_secret": "999999"
+  }
+]

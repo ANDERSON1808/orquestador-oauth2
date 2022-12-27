@@ -1,0 +1,30 @@
+{
+  "products": [
+    {
+      "proveedor": "miempresa",
+      "lista": [
+        {
+          "prod_id": "xxx1",
+          "prod_descrip": "yyyyyy1"
+        },
+        {
+          "prod_id": "xxx11",
+          "prod_descrip": "yyyyyy11"
+        }
+      ]
+    },
+    {
+      "proveedor": "miempresa2",
+      "lista": [
+        {
+          "prod_id": "xxx2",
+          "prod_descrip": "yyyyyy2"
+        },
+        {
+          "prod_id": "xxx21",
+          "prod_descrip": "yyyyyy21"
+        }
+      ]
+    }
+  ]
+}
