@@ -1,13 +1,16 @@
 version: "3.7"
 services:
-  app:
-    build:
-      context: .
-      # target: build
-    volumes:
-      - "./env.yml:/app/env.yml"
-    environment:
-      DEBUG: "${DEBUG:-false}"
-      APP_PORT: "${APP_PORT:-8000}"
+  externo:
+    build: "externo/."
     ports:
-      - "${APP_PORT:-8000}:${APP_PORT:-8000}"
+      - "9096:9097"
+    expose:
+      - "9096"
+    restart: always
+  interno:
+    build: "Interno/."
+    ports:
+      - "8000:8001"
+    expose:
+      - "8000"
+    restart: always

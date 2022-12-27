@@ -1,10 +1,10 @@
 package main
 
 import (
+	"externo/product/handler"
 	"fmt"
 	"log"
 	"net/http"
-	"orquestador/basic/servidorClienteExternoOauth/handler"
 
 	"github.com/go-oauth2/oauth2/v4/errors"
 	"github.com/go-oauth2/oauth2/v4/manage"
