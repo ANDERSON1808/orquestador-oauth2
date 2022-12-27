@@ -1,8 +1,10 @@
 [
   {
+    "name_company": "company1",
     "auth_url": "http://localhost:9096/authorize",
     "token_url": "http://localhost:9096/token",
     "client_id": "000000",
-    "client_secret": "999999"
+    "client_secret": "999999",
+    "url_product": "https://run.mocky.io/v3/ac680568-ce26-483b-86be-797e1376f2c3"
   }
 ]

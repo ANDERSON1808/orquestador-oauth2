@@ -30,8 +30,8 @@ func (s *Server) handleOAuthCallback(w http.ResponseWriter, req *http.Request) {
 		log.Println("Token expiry:", tok.Expiry.String())
 	}
 	s.httpClient = *s.config.OAuth2Config.Client(s.context, tok)
-	w.Header().Add("Location", "/")
-	w.WriteHeader(http.StatusTemporaryRedirect)
+	w.Header().Add("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 }
 
 func (s *Server) refreshAccessToken() error {

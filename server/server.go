@@ -39,11 +39,6 @@ func New(c *config.Config) *Server {
 		}
 	}
 
-	c.OAuth2Config.RedirectURL = fmt.Sprintf("http://localhost:%d%s", c.AppPort, callbackURI)
-	if config.DebugMode {
-		log.Println("RedirectURL:", c.OAuth2Config.RedirectURL)
-	}
-
 	s := &Server{
 		config:     c,
 		context:    context.Background(),
@@ -62,7 +57,7 @@ func (s *Server) Start() error {
 
 func (s *Server) getAuthorisationHeader() (string, string) {
 	return "authorization", base64.StdEncoding.EncodeToString([]byte(
-		fmt.Sprintf("Basic %s:%s", s.config.ClientID, s.config.ClientSecret),
+		fmt.Sprintf("Basic %s:%s", s.config.OAuth2Config.ClientID, s.config.OAuth2Config.ClientSecret),
 	))
 }
 
