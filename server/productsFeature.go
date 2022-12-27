@@ -28,7 +28,7 @@ func (s *Server) getAllProducts(w http.ResponseWriter, req *http.Request) {
 		//Autenticacion
 		s.handleOAuthCallback(w, req)
 		//Solicitud productos
-		invoicesRequest, err := http.NewRequest("GET", item.UrlProduct, nil)
+		invoicesRequest, err := http.NewRequest("GET", fmt.Sprintf("%s?client_id=%s&response_type=token", item.UrlProduct, item.ClientId), nil)
 		if err != nil {
 			errMsg := "An error occurred while trying to create a request to send to the API product."
 			_, _ = w.Write([]byte("<p>" + errMsg + "</p>"))
@@ -37,17 +37,16 @@ func (s *Server) getAllProducts(w http.ResponseWriter, req *http.Request) {
 			log.Println(err)
 			return
 		}
+		//?client_id=000000&response_type=token
 		invoicesRequest.Header.Add(s.getAuthorisationHeader())
 		invoicesResponse, err := s.httpClient.Do(invoicesRequest)
 		//Validacion respuesta
 		if err != nil && invoicesResponse.StatusCode != 200 {
 			errMsg := "An error occurred while trying to retrieve the products."
-			_, err := w.Write([]byte(errMsg + " Please check the log for details"))
-			if err != nil {
-				return
-			}
+			w.Write([]byte(errMsg + " Please check the log for details"))
 			log.Println(errMsg)
 			log.Println(err)
+			return
 		}
 		respBody, err := ioutil.ReadAll(invoicesResponse.Body)
 		if err != nil {
