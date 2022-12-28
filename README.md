@@ -29,7 +29,7 @@ go mod tidy
 ## Correrlo local
 
 OS X & Linux:
-
+- Tener en cuenta la configuracion del archivo integraciones.json cambiar la ruta a localhost.
 ```sh
 cd Interno
 go run main.go
